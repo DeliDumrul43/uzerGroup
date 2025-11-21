@@ -4,100 +4,101 @@ import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslation } from "react-i18next"; // Çeviri hook'u eklendi
 import { 
   BiBuildingHouse 
 } from "react-icons/bi";
 import { 
   FaChair, FaRegBuilding, FaCube, FaLightbulb, FaTools, 
   FaCity, FaShip, FaClipboardList, FaUsers, FaChalkboardTeacher 
-  // --- HATA DÜZELTİLDİ: FaLamp kaldırıldı, FaLightbulb zaten vardı ---
 } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// 1. Hizmet verilerinizi bir array'e dönüştürdük
-const servicesData = [
-  {
-    id: 1,
-    icon: <BiBuildingHouse size={32} />,
-    title: "Mimari Proje",
-    description: "Konut ve ticari binalar için mimari proje, üretim ve uygulama kontrollüğü.",
-  },
-  {
-    id: 2,
-    icon: <FaChair size={32} />,
-    title: "İç Mekan Düzenlemesi",
-    description: "Ofis, mağaza ve konutlar için iç mekan projeleri, üretim ve uygulama.",
-  },
-  {
-    id: 3,
-    icon: <FaRegBuilding size={32} />,
-    title: "Kurumsal Kimlik Tasarımı",
-    description: "Kurumsal firmalar için mekan düzenlemesi ile ilgili kimlik tasarımı ve uygulaması.",
-  },
-  {
-    id: 4,
-    icon: <FaCube size={32} />,
-    title: "Fuar Stand Tasarımı",
-    description: "Fuar stantları için mimari proje, üretim ve uygulama kontrollüğü hizmetleri.",
-  },
-  {
-    id: 5,
-    icon: <FaLightbulb size={32} />,
-    title: "Konsept Proje Hizmetleri",
-    description: "Mimari & İç Mimari konsept proje, uygulama, kontrolörlük ve koordinasyon.",
-  },
-  {
-    id: 6,
-    icon: <FaTools size={32} />,
-    title: "Restorasyon",
-    description: "Restorasyon proje, uygulama, danışmanlık, kontrolörlük ve koordinasyon.",
-  },
-  {
-    id: 7,
-    icon: <FaCity size={32} />,
-    title: "Kentsel Tasarım",
-    description: "Kentsel tasarım proje, uygulama, danışmanlık ve koordinasyon hizmetleri.",
-  },
-  {
-    id: 8,
-    // --- HATA DÜZELTİLDİ: FaLamp -> FaLightbulb olarak değiştirildi ---
-    icon: <FaLightbulb size={32} />,
-    title: "Ürün Tasarımı",
-    description: "Mobilya, aydınlatma ve özel ürün tasarımı ve uygulama hizmetleri.",
-  },
-  {
-    id: 9,
-    icon: <FaShip size={32} />,
-    title: "Tekne & Yat Tasarımı",
-    description: "Tekne iç mekân konsept proje, uygulama ve danışmanlık hizmetleri.",
-  },
-  {
-    id: 10,
-    icon: <FaClipboardList size={32} />,
-    title: "Proje Yönetimi",
-    description: "Mimari projeler için profesyonel proje yönetimi ve danışmanlık hizmetleri.",
-  },
-  {
-    id: 11,
-    icon: <FaUsers size={32} />,
-    title: "Fuar Organizasyon",
-    description: "Fuar hostesi, catering ve tam kapsamlı organizasyon hizmetleri.",
-  },
-  {
-    id: 12,
-    icon: <FaChalkboardTeacher size={32} />,
-    title: "Danışmanlık ve Eğitim",
-    description: "Mimari & İç Mimari konseptleri üzerine danışmanlık ve eğitim hizmetleri.",
-  },
-];
-
 function Services({ id }) {
+  const { t } = useTranslation(); // Hook başlatıldı
   const sectionRef = useRef(null);
   const gridRef = useRef(null);
 
+  // 1. Verileri bileşen içine taşıdık ki 't' fonksiyonuna erişebilsinler
+  // Böylece dil değiştiğinde içerik otomatik güncellenir.
+  const servicesData = [
+    {
+      id: 1,
+      icon: <BiBuildingHouse size={32} />,
+      title: t('services.items.s1.title'),
+      description: t('services.items.s1.desc'),
+    },
+    {
+      id: 2,
+      icon: <FaChair size={32} />,
+      title: t('services.items.s2.title'),
+      description: t('services.items.s2.desc'),
+    },
+    {
+      id: 3,
+      icon: <FaRegBuilding size={32} />,
+      title: t('services.items.s3.title'),
+      description: t('services.items.s3.desc'),
+    },
+    {
+      id: 4,
+      icon: <FaCube size={32} />,
+      title: t('services.items.s4.title'),
+      description: t('services.items.s4.desc'),
+    },
+    {
+      id: 5,
+      icon: <FaLightbulb size={32} />,
+      title: t('services.items.s5.title'),
+      description: t('services.items.s5.desc'),
+    },
+    {
+      id: 6,
+      icon: <FaTools size={32} />,
+      title: t('services.items.s6.title'),
+      description: t('services.items.s6.desc'),
+    },
+    {
+      id: 7,
+      icon: <FaCity size={32} />,
+      title: t('services.items.s7.title'),
+      description: t('services.items.s7.desc'),
+    },
+    {
+      id: 8,
+      icon: <FaLightbulb size={32} />,
+      title: t('services.items.s8.title'),
+      description: t('services.items.s8.desc'),
+    },
+    {
+      id: 9,
+      icon: <FaShip size={32} />,
+      title: t('services.items.s9.title'),
+      description: t('services.items.s9.desc'),
+    },
+    {
+      id: 10,
+      icon: <FaClipboardList size={32} />,
+      title: t('services.items.s10.title'),
+      description: t('services.items.s10.desc'),
+    },
+    {
+      id: 11,
+      icon: <FaUsers size={32} />,
+      title: t('services.items.s11.title'),
+      description: t('services.items.s11.desc'),
+    },
+    {
+      id: 12,
+      icon: <FaChalkboardTeacher size={32} />,
+      title: t('services.items.s12.title'),
+      description: t('services.items.s12.desc'),
+    },
+  ];
+
   useGSAP(() => {
-    // 2. Başlık ve metin animasyonu
+    // Başlık animasyonu
     gsap.from(".services-text-reveal", {
       opacity: 0,
       y: 50,
@@ -111,7 +112,7 @@ function Services({ id }) {
       },
     });
 
-    // 3. Servis kartları için stagger animasyonu
+    // Kart animasyonu
     gsap.from(".service-card", {
       opacity: 0,
       y: 30,
@@ -130,29 +131,29 @@ function Services({ id }) {
 
   return (
     <section 
-      id={id} // ID: "services" olmalı
+      id={id} 
       ref={sectionRef}
       className="w-full bg-white py-24 px-4"
     >
       <div className="max-w-6xl mx-auto">
         
-        {/* --- BÖLÜM BAŞLIĞI --- */}
+        {/* --- BÖLÜM BAŞLIĞI (Çevirili) --- */}
         <div className="text-center mb-16">
           <p className="services-text-reveal font-sans text-lg font-bold text-brand-gold mb-2">
-            Hizmetlerimiz
+            {t('services.header')}
           </p>
           <h2 className="services-text-reveal font-serif text-4xl md:text-5xl font-bold text-brand-black mb-6">
-            Uzmanlık Alanlarımız
+            {t('services.title')}
           </h2>
           <p className="services-text-reveal font-sans text-base text-gray-700 max-w-3xl mx-auto mb-4">
-            Uzer’s Grup %100 Türk sermayeli bir firma olarak 2015 yılında kurulmuştur.
+            {t('services.intro1')}
           </p>
           <p className="services-text-reveal font-sans text-base text-gray-700 max-w-3xl mx-auto">
-            Gayrimenkul, Mimarlık, Reklam, Fuar Organizasyon, Prodüksiyon, Medya, Danışmanlık ve Digital Signage sektörünün lider firması konumunda, projelerine hızla devam etmektedir.
+            {t('services.intro2')}
           </p>
         </div>
 
-        {/* --- 6. HİZMETLER GRIDI --- */}
+        {/* --- HİZMETLER GRIDI --- */}
         <div 
           ref={gridRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"

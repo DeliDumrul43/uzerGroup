@@ -2,54 +2,33 @@
 
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next'; // Çeviri hook'unu import ettim
+
 
 // Imports based on your folder structure:
-import Navbar from '../components/Navbar';       // From components
-import ProjectCard from '../components/ProjectCard'; // From components
-import Leading from './Leading';               // From views
-import About from './About';                 // From views
-import Services from './Services';             // From views (the file we just created)
-import Contact from './Contact';               // From views
-import Footer from './Footer';                 // From views
-
-// SEO DATA
-const pageInfoData = {
-  home: {
-    title: "UZERSGROUP | Mimarlık & Renovasyon",
-    description: "UZERSGROUP - Modern mimari, ev renovasyonu, fuar stand tasarımları ve kurumsal bina çözümleri."
-  },
-  about: {
-    title: "Hakkımızda - UZERSGROUP",
-    description: "Vizyonu gerçeğe dönüştüren mimari anlayışımız, misyonumuz ve değerlerimiz."
-  },
-  projects: { 
-    title: "Projelerimiz - UZERSGROUP",
-    description: "İlham veren ve tamamlanmış projelerimizi keşfedin: Konut, ofis, ve fuar standları."
-  },
-  services: { 
-    title: "Hizmetlerimiz - UZERSGROUP",
-    description: "Sunduğumuz hizmetler: Komple ev renovasyonu, fuar stand tasarımı, kurumsal bina dizaynı ve daha fazlası."
-  },
-  contact: {
-    title: "İletişim - UZERSGROUP",
-    description: "Proje fikirleriniz için bizimle iletişime geçin. UZERSGROUP mimarlık ekibi."
-  }
-};
+import Navbar from '../components/Navbar';      
+import ProjectCard from '../components/ProjectCard';
+import Leading from './Leading';          
+import About from './About';               
+import Services from './Services';             
+import Contact from './Contact';               
+import Footer from './Footer';                 
 
 function Home() {
-  const [pageInfo, setPageInfo] = useState(pageInfoData.home);
+  const { t } = useTranslation(); // Hook başlatıldı
+  const [activeSection, setActiveSection] = useState('home');
 
+  // Navbar'dan gelen bölüm adına göre state'i güncelliyoruz
   const handleSetActive = (sectionName) => {
-    if (pageInfoData[sectionName]) {
-      setPageInfo(pageInfoData[sectionName]);
-    }
+    setActiveSection(sectionName);
   };
   
   return (
     <>
       <Helmet>
-          <title>{pageInfo.title}</title>
-          <meta name="description" content={pageInfo.description} />
+          {/* Başlık ve Açıklama artık i18n.js dosyasından 'meta' altından geliyor */}
+          <title>{t(`meta.${activeSection}.title`)}</title>
+          <meta name="description" content={t(`meta.${activeSection}.desc`)} />
       </Helmet>
 
       <Navbar onLinkSetActive={handleSetActive} />    
@@ -57,7 +36,7 @@ function Home() {
       <Leading id="home" />
       <About id="about" />
       <Services id="services" /> 
-      <ProjectCard id="projects" /> {/* <-- Note: Using ProjectCard component */}
+      <ProjectCard id="projects" /> 
       <Contact id="contact" />
       <Footer />
     </>
