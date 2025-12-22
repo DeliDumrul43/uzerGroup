@@ -3,13 +3,13 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
-import { useTranslation } from "react-i18next"; // Import translation hook
-import contactImage from "../assets/images/logo.png"; 
+import { useTranslation } from "react-i18next"; 
+import contactImage from "../assets/images/contact_img.jpeg"; 
 
 gsap.registerPlugin(ScrollTrigger);
 
 function Contact({ id }) {
-  const { t } = useTranslation(); // Init hook
+  const { t } = useTranslation(); 
   const sectionRef = useRef(null);
 
   useGSAP(() => {
@@ -58,14 +58,24 @@ function Contact({ id }) {
               </div>
             </a>
 
-            {/* Address */}
+            {/* Istanbul Address */}
             <div className="group flex items-center gap-4">
               <div className="text-brand-gold bg-gray-800 p-3 rounded-full"><FaMapMarkerAlt size={20} /></div>
               <div>
-                <h3 className="font-sans font-bold text-lg text-white">{t('contact.address')}</h3>
+                <h3 className="font-sans font-bold text-lg text-white">{t('contact.addressIstanbul')}</h3>
                 <p className="font-sans text-gray-400">İstanbul, Türkiye</p>
               </div>
             </div>
+
+            {/* Berlin Address */}
+            <div className="group flex items-center gap-4">
+              <div className="text-brand-gold bg-gray-800 p-3 rounded-full"><FaMapMarkerAlt size={20} /></div>
+              <div>
+                <h3 className="font-sans font-bold text-lg text-white">{t('contact.addressBerlin')}</h3>
+                <p className="font-sans text-gray-400">Großbeerenstraße 2-10, 12107 Berlin</p> 
+              </div>
+            </div>
+
           </div>
         </div>
 

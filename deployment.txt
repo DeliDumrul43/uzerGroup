@@ -4,4 +4,6 @@ Oluşan dist klasörünün içine .htaccess dosyasını ekle.
 
 dist klasörünün içindeki her şeyi FTP ile public_html klasörüne yükle.
 
-Firebase'de alan adını yetkilendir.
+
+
+https://stackoverflow.com/questions/49939601/how-to-deploy-a-react-app-on-cpanel 

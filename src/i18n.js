@@ -54,7 +54,18 @@ const resources = {
           p9: "Lüks Mağaza",
           p10: "Kongre Merkezi"
         },
-        popupDesc: "Bu proje için özel olarak tasarlanmış mimari detaylar, kullanılan lüks malzemeler ve fonksiyonel alan çözümleri ile estetik ve konforu bir araya getirdik."
+        descriptions: {
+          p1: "Array markası için tasarlanan bu fuar standı, modern çizgileri ve açık plan düzeniyle ziyaretçi etkileşimini maksimuma çıkarır.",
+          p2: "Etra için hazırlanan bu fütüristik sergi alanı, dinamik formlar ve entegre aydınlatma çözümleriyle markanın yenilikçi yüzünü yansıtır.",
+          p3: "Doğal taş dokuları ve gizli aydınlatmalarla tasarlanan bu banyo, minimalist lüksün ve dinginliğin mükemmel bir örneğidir.",
+          p4: "Çalışan verimliliğini artıran ergonomik mobilyalar ve kurumsal kimliği yansıtan detaylarla şekillendirilmiş modern bir ofis renovasyonu.",
+          p5: "Sıcak tonlar, yumuşak dokular ve modern mobilyaların harmanlandığı, hem şık hem de konforlu bir yaşam alanı tasarımı.",
+          p6: "Teknoloji fuarı için geliştirilen bu stand, dijital ekran entegrasyonları ve akıcı ziyaretçi dolaşım planı ile öne çıkmaktadır.",
+          p7: "Şirket genel merkezi için tasarlanan bu lobi, yüksek tavanları ve prestijli malzeme seçimiyle güçlü bir ilk izlenim bırakır.",
+          p8: "Ahşap detayların ve doğal malzemelerin ağırlıkta olduğu bu stand tasarımı, sürdürülebilirlik ve sıcaklık vurgusu yapar.",
+          p9: "Ürünleri ön plana çıkaran özel aydınlatma tasarımı ve lüks malzeme paleti ile oluşturulmuş, davetkar bir mağaza konsepti.",
+          p10: "Büyük ölçekli etkinlikler için optimize edilmiş, akustik konfor ve geniş kullanım alanları sunan kongre merkezi projesi."
+        }
       },
       services: {
         header: "Hizmetlerimiz",
@@ -81,7 +92,8 @@ const resources = {
         desc: "Hayalinizdeki mekanı gerçeğe dönüştürmek için buradayız.",
         email: "E-posta",
         phone: "Telefon",
-        address: "Adres"
+        addressIstanbul: "İstanbul Ofis",
+        addressBerlin: "Berlin Ofis"
       },
       meta: {
         home: { 
@@ -159,7 +171,18 @@ const resources = {
           p9: "Luxury Store",
           p10: "Congress Center"
         },
-        popupDesc: "We combined aesthetics and comfort with architectural details designed specifically for this project, utilizing luxury materials and functional space solutions."
+        descriptions: {
+          p1: "Designed for Array, this fair stand maximizes visitor interaction with its modern lines and open-plan layout.",
+          p2: "This futuristic exhibition area prepared for Etra reflects the brand's innovative face with dynamic forms and integrated lighting solutions.",
+          p3: "Designed with natural stone textures and hidden lighting, this bathroom is a perfect example of minimalist luxury and serenity.",
+          p4: "A modern office renovation shaped with ergonomic furniture that increases employee efficiency and details reflecting corporate identity.",
+          p5: "A stylish and comfortable living space design blending warm tones, soft textures, and modern furniture.",
+          p6: "Developed for the technology fair, this stand stands out with digital screen integrations and a fluid visitor circulation plan.",
+          p7: "Designed for the company headquarters, this lobby leaves a strong first impression with its high ceilings and prestigious material selection.",
+          p8: "This stand design, dominated by wooden details and natural materials, emphasizes sustainability and warmth.",
+          p9: "An inviting store concept created with a luxury material palette and special lighting design that highlights the products.",
+          p10: "A congress center project optimized for large-scale events, offering acoustic comfort and spacious usage areas."
+        }
       },
       services: {
         header: "Our Services",
@@ -186,7 +209,8 @@ const resources = {
         desc: "We are here to turn your dream space into reality.",
         email: "Email",
         phone: "Phone",
-        address: "Address"
+        addressIstanbul: "Istanbul Office",
+        addressBerlin: "Berlin Office"
       },
       meta: {
         home: { 
@@ -264,7 +288,18 @@ const resources = {
           p9: "Luxusgeschäft",
           p10: "Kongresszentrum"
         },
-        popupDesc: "Wir haben Ästhetik und Komfort mit speziell für dieses Projekt entworfenen architektonischen Details, luxuriösen Materialien und funktionalen Raumlösungen kombiniert."
+        descriptions: {
+          p1: "Dieser für Array entworfene Messestand maximiert die Besucherinteraktion durch seine modernen Linien und den offenen Grundriss.",
+          p2: "Dieser für Etra vorbereitete futuristische Ausstellungsbereich spiegelt mit dynamischen Formen und integrierten Beleuchtungslösungen das innovative Gesicht der Marke wider.",
+          p3: "Dieses mit Natursteintexturen und versteckter Beleuchtung gestaltete Badezimmer ist ein perfektes Beispiel für minimalistischen Luxus und Ruhe.",
+          p4: "Eine moderne Bürorenovierung, gestaltet mit ergonomischen Möbeln zur Steigerung der Mitarbeitereffizienz und Details, die die Unternehmensidentität widerspiegeln.",
+          p5: "Ein stilvolles und komfortables Wohnraumdesign, das warme Töne, weiche Texturen und moderne Möbel vereint.",
+          p6: "Dieser für die Technologiemesse entwickelte Stand zeichnet sich durch digitale Bildschirmintegrationen und einen fließenden Besucherrundgang aus.",
+          p7: "Diese für den Firmensitz entworfene Lobby hinterlässt mit ihren hohen Decken und der repräsentativen Materialauswahl einen starken ersten Eindruck.",
+          p8: "Dieses von Holzdetails und natürlichen Materialien dominierte Standdesign betont Nachhaltigkeit und Wärme.",
+          p9: "Ein einladendes Ladenkonzept, das mit einer luxuriösen Materialpalette und einem speziellen Lichtdesign erstellt wurde, das die Produkte hervorhebt.",
+          p10: "Ein Kongresszentrumsprojekt, das für Großveranstaltungen optimiert ist und akustischen Komfort sowie großzügige Nutzungsbereiche bietet."
+        }
       },
       services: {
         header: "Dienstleistungen",
@@ -291,7 +326,8 @@ const resources = {
         desc: "Wir sind hier, um Ihren Traumraum in die Realität umzusetzen.",
         email: "E-Mail",
         phone: "Telefon",
-        address: "Adresse"
+        addressIstanbul: "Istanbul Büro",
+        addressBerlin: "Berlin Büro"
       },
       meta: {
         home: { 
@@ -323,7 +359,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: "tr", // Default language
+    lng: "tr", 
     fallbackLng: "en",
     interpolation: {
       escapeValue: false

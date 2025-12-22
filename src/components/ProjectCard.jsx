@@ -3,53 +3,83 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaTimes, FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { useTranslation } from "react-i18next"; // Import hook
+import { useTranslation } from "react-i18next"; 
 
-import proj1 from "../assets/images/projects/p1.jpg";
-import proj2 from "../assets/images/projects/p2.jpg";
-import proj3 from "../assets/images/projects/p3.jpg";
-import proj4 from "../assets/images/projects/p4.jpg";
-import proj5 from "../assets/images/projects/p5.jpg";
-import proj6 from "../assets/images/projects/p6.jpg";
-import proj7 from "../assets/images/projects/p7.jpg";
-import proj8 from "../assets/images/projects/p8.jpg";
-import proj9 from "../assets/images/projects/p9.jpg";
-import proj10 from "../assets/images/projects/p10.jpg";
+import array1 from "../assets/images/projects/array1.jpg";
+import array2 from "../assets/images/projects/array2.jpg";
+import array3 from "../assets/images/projects/array3.jpg";
+import array4 from "../assets/images/projects/array4.jpg";
+
+import etra1 from "../assets/images/projects/etra1.jpg";
+import etra2 from "../assets/images/projects/etra2.jpg";
+
+import ibak1 from "../assets/images/projects/ibak1.jpg";
+import ibak2 from "../assets/images/projects/ibak2.jpg";
+import ibakMain from "../assets/images/projects/ibak.jpg";
+
+import lowe1 from "../assets/images/projects/lowe1.jpg";
+import lowe2 from "../assets/images/projects/lowe2.jpg";
+import lowe3 from "../assets/images/projects/lowe3.jpg";
+
+import sapi1 from "../assets/images/projects/sapi1.jpg";
+import sapi2 from "../assets/images/projects/sapi2.jpg";
+import sapi3 from "../assets/images/projects/sapi3.jpg";
+
+import set1 from "../assets/images/projects/set1.jpg";
+import set2 from "../assets/images/projects/set2.jpg";
+import set3 from "../assets/images/projects/set3.jpg";
+
+// New Home (Ev) Project
+import ev1 from "../assets/images/projects/ev1.jpg"; 
+import ev2 from "../assets/images/projects/ev2.jpg";
+import ev3 from "../assets/images/projects/ev3.jpg";
+
+// New Kitchen (Mutfak) Project
+import mutfak_1 from "../assets/images/projects/mutfak1_2.jpg"; 
+import mutfak_2 from "../assets/images/projects/mutfak1_3.jpg";
+import mutfak_3 from "../assets/images/projects/mutfak1.jpg";
+
+import p4 from "../assets/images/projects/p4.jpg"; 
+import p6 from "../assets/images/projects/p6.jpg"; 
 
 gsap.registerPlugin(ScrollTrigger);
 
 function ProjectCard({ id }) {
-  const { t } = useTranslation(); // Init hook
+  const { t } = useTranslation();
   const sectionRef = useRef(null);
   const gridRef = useRef(null); 
   
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Helper to create data using translations
-  const createProjectData = (id, titleKey, categoryKey, img) => ({
+  const createProjectData = (id, titleKey, categoryKey, mainImage, year, galleryImages) => ({
     id,
-    title: t(`projects.items.${titleKey}`),
+    title: t(`projects.items.${titleKey}`), 
     category: t(`projects.categories.${categoryKey}`),
-    image: img,
-    gallery: [img, img, img],
-    description: t('projects.popupDesc'),
+    image: mainImage,
+    gallery: galleryImages && galleryImages.length > 0 ? galleryImages : [mainImage, mainImage, mainImage], 
+    description: t(`projects.descriptions.${titleKey}`),
     location: "İstanbul, TR",
-    year: "2024"
+    year: year
   });
 
-  // Data is now defined INSIDE component so it re-renders on language change
   const projectsData = [
-    createProjectData(1, "p1", "corporate", proj1),
-    createProjectData(2, "p2", "corporate", proj2),
-    createProjectData(3, "p3", "home", proj3),
-    createProjectData(4, "p4", "renovation", proj4),
-    createProjectData(5, "p5", "home", proj5),
-    createProjectData(6, "p6", "fair", proj7),
-    createProjectData(7, "p7", "building", proj6),
-    createProjectData(8, "p8", "corporate", proj8),
-    createProjectData(9, "p9", "corporate", proj9),
-    createProjectData(10, "p10", "fair", proj10),
+    createProjectData(1, "p1", "fair", array1, "2023", [array1, array2, array3, array4]),
+    createProjectData(2, "p2", "fair", etra1, "2023", [etra1, etra2]),
+    createProjectData(3, "p6", "fair", ibakMain, "2022", [ibakMain, ibak1, ibak2]),
+    createProjectData(4, "p8", "fair", lowe1, "2022", [lowe1, lowe2, lowe3]),
+    createProjectData(5, "p10", "fair", sapi1, "2021", [sapi1, sapi2, sapi3]),
+    createProjectData(6, "p9", "fair", set1, "2021", [set1, set2, set3]),
+    
+    // Updated with Kitchen Images (using mutfak_3/mutfak1.jpg as main)
+    createProjectData(7, "p3", "home", mutfak_3, "2020", [mutfak_3, mutfak_1, mutfak_2]), 
+    
+    createProjectData(8, "p4", "renovation", p4, "2020", [p4]),
+    
+    // Updated with Home Images
+    createProjectData(9, "p5", "home", ev1, "2019", [ev1, ev2, ev3]),
+    
+    createProjectData(10, "p7", "building", p6, "2019", [p6]),
   ];
 
   useEffect(() => {
@@ -99,12 +129,16 @@ function ProjectCard({ id }) {
 
   const nextSlide = (e) => {
     e.stopPropagation();
-    setCurrentSlide((prev) => (prev === selectedProject.gallery.length - 1 ? 0 : prev + 1));
+    if (selectedProject?.gallery) {
+        setCurrentSlide((prev) => (prev === selectedProject.gallery.length - 1 ? 0 : prev + 1));
+    }
   };
 
   const prevSlide = (e) => {
     e.stopPropagation();
-    setCurrentSlide((prev) => (prev === 0 ? selectedProject.gallery.length - 1 : prev - 1));
+    if (selectedProject?.gallery) {
+        setCurrentSlide((prev) => (prev === 0 ? selectedProject.gallery.length - 1 : prev - 1));
+    }
   };
 
   return (
@@ -141,15 +175,32 @@ function ProjectCard({ id }) {
         </div>
       </div>
 
-      {/* MODAL */}
       {selectedProject && (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center px-4 bg-black/80 backdrop-blur-sm transition-all duration-300" onClick={closeModal}>
           <div className="bg-white w-full max-w-5xl rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh] animate-fadeIn" onClick={(e) => e.stopPropagation()}>
             
-            <div className="w-full md:w-3/5 relative bg-black h-[300px] md:h-auto flex items-center justify-center">
+            <div className="w-full md:w-3/5 relative bg-black h-[300px] md:h-auto flex items-center justify-center group/slider">
               <img src={selectedProject.gallery[currentSlide]} alt={selectedProject.title} className="w-full h-full object-cover"/>
-              <button onClick={prevSlide} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-md transition-all"><FaChevronLeft size={20} /></button>
-              <button onClick={nextSlide} className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-md transition-all"><FaChevronRight size={20} /></button>
+              
+              {selectedProject.gallery.length > 1 && (
+                <>
+                    <button onClick={prevSlide} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-md transition-all opacity-0 group-hover/slider:opacity-100">
+                        <FaChevronLeft size={20} />
+                    </button>
+                    <button onClick={nextSlide} className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-md transition-all opacity-0 group-hover/slider:opacity-100">
+                        <FaChevronRight size={20} />
+                    </button>
+
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                        {selectedProject.gallery.map((_, idx) => (
+                        <div 
+                            key={idx} 
+                            className={`h-2 w-2 rounded-full transition-all ${currentSlide === idx ? 'bg-brand-gold w-4' : 'bg-white/50'}`}
+                        />
+                        ))}
+                    </div>
+                </>
+              )}
             </div>
 
             <div className="w-full md:w-2/5 p-8 md:p-10 relative overflow-y-auto">

@@ -2,7 +2,6 @@ import React from "react";
 
 function Loading() {
   return (
-    // 1. Changed background to black to match your new theme
     <div className="h-screen w-full flex items-center justify-center bg-black">
       <style>
         {`
@@ -21,7 +20,6 @@ function Loading() {
         `}
       </style>
       
-      {/* 3. Replaced SVG with an architectural "blueprint" icon */}
       <svg
         className="m-auto w-28 h-28" // Size is good
         viewBox="0 0 100 100"
@@ -34,21 +32,18 @@ function Loading() {
           strokeLinecap="round" 
           strokeLinejoin="round"
         >
-          {/* Path 1: The main house outline */}
           <path
             className="draw-path"
             d="M20 80 L20 40 L50 10 L80 40 L80 80 L20 80"
             style={{ animationDelay: '0s' }}
           />
           
-          {/* Path 2: The cross-beam */}
           <path
             className="draw-path"
             d="M20 40 L80 40"
             style={{ animationDelay: '0.8s' }}
           />
 
-          {/* Path 3: The door */}
           <path
             className="draw-path"
             d="M40 80 L40 60 L60 60 L60 80"

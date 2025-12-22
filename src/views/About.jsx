@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next"; // Hook eklendi
 import { FaDraftingCompass, FaHardHat, FaLightbulb, FaStar } from "react-icons/fa"; 
 import { BiBuildingHouse } from "react-icons/bi";
 
-import aboutImage from "../assets/images/about_img.jpg"; 
+import aboutImage from "../assets/images/about_img.png"; 
 
 gsap.registerPlugin(ScrollTrigger);
 

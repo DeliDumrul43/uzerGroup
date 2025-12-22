@@ -18,7 +18,6 @@ function Home() {
   const { t } = useTranslation(); // Hook başlatıldı
   const [activeSection, setActiveSection] = useState('home');
 
-  // Navbar'dan gelen bölüm adına göre state'i güncelliyoruz
   const handleSetActive = (sectionName) => {
     setActiveSection(sectionName);
   };
@@ -26,7 +25,6 @@ function Home() {
   return (
     <>
       <Helmet>
-          {/* Başlık ve Açıklama artık i18n.js dosyasından 'meta' altından geliyor */}
           <title>{t(`meta.${activeSection}.title`)}</title>
           <meta name="description" content={t(`meta.${activeSection}.desc`)} />
       </Helmet>

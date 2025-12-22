@@ -20,8 +20,7 @@ function Services({ id }) {
   const sectionRef = useRef(null);
   const gridRef = useRef(null);
 
-  // 1. Verileri bileşen içine taşıdık ki 't' fonksiyonuna erişebilsinler
-  // Böylece dil değiştiğinde içerik otomatik güncellenir.
+
   const servicesData = [
     {
       id: 1,
